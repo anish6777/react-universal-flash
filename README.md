@@ -2,7 +2,7 @@
 React library which provides a function to flash messages.
   - Flasher component needs to be added only at one place in App
   - Message can be programatically flashed from anywhere in code
-  - Custom component can be created to style the messages or one can use components like Alert from material-ui,react-bootstrap or any other library
+  - Custom component can be created to style the messages or one can use components like "Alert" from material-ui,react-bootstrap or any other library
 
 
 # Installation and Setup Instructions
@@ -32,7 +32,9 @@ const App = () => {
   - import the flash function and fire it from anywhere in the App
   - flash function takes three inputs message content, time to live(in milliseconds) and type . 
   - "type" can be used in the custom component to modify the message. 
-`
+
+
+```JSX
 import {flash} from "react-universal-flash";
 
 const Layout = () => {
@@ -43,7 +45,7 @@ const Layout = () => {
     </>
   );
 };
-`
+```
 
 # Custom component to flash message
 
@@ -111,7 +113,7 @@ const Test = ({  }) => {
   );
 };
 ```
-# custom component using material-ui
+# Custom message component using material-ui
 We can create the message component using material-ui as below and pass it as a child to Flasher
 
 ## Message component
@@ -128,7 +130,7 @@ export const Message = ({type,content,deleteFlash}) =>
 
 
 
-# custom component using react-bootstrap
+# Custom message component using react-bootstrap
 We can create the message component using react-bootstrap as below and pass it as a child to Flasher
 
 ## Message component
