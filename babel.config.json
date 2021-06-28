@@ -1,0 +1,13 @@
+{
+  "presets": [["@babel/preset-env",{
+    "targets": { "browsers":[
+      "edge >= 16",
+      "firefox >= 57",
+      "chrome >= 49",
+      "safari >= 9",
+    "ie >= 11","ios >= 9"]
+    },
+    "useBuiltIns": "usage",
+    "corejs": "3.6.5"
+  }], "@babel/preset-react"]
+}
