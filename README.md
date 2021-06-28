@@ -11,7 +11,8 @@ React library which provides a function to flash messages.
   - Configure the flasher by importing Flasher component and adding it to App/index file of your app which will be rendered always.
   - If we pass child to the Flasher component that child will be used to Flash the messages.
   - Flasher takes position and as props, if no position is provided default position will be"top_right"
-`
+
+```JSX
 import {Flasher} from "react-universal-flash";
 
 const App = () => {
@@ -22,7 +23,7 @@ const App = () => {
     </Router>
   );
 }
-`
+```
 
 ## Step 3
   - import the flash function and fire it from anywhere in the App
@@ -47,7 +48,7 @@ We can pass a custom message component as child to Flasher. Then message will be
 Child component will receive props - content,type and deleteFlash which can be used to show the message and delete it manually.
 
 ## Sample Flasher configuration
-`
+```JSX
 import {Flasher} from "react-universal-flash";
 import Message from "./Message"
 
@@ -61,11 +62,11 @@ const App = () => {
     </Router>
   );
 }
-`
+```
 
 ## Sample custom component
 
-`
+```JSX
 const messageBarStyle = {
   "padding": "20px",
   "backgroundColor": "red",
@@ -90,9 +91,10 @@ return
   <span style={closeButtonStyle} onClick={deleteFlash}>&times;</span>
 </div>)
 }
-`
+```
 ### Usage 
-`
+
+```JSX
 import {flash} from "react-universal-flash";
 
 const Test = ({  }) => {
@@ -105,12 +107,13 @@ const Test = ({  }) => {
     </div>
   );
 };
-`
+```
 # custom component using material-ui
 We can create the message component using material-ui as below and pass it as a child to Flasher
 
 ## Message component
-`
+
+```JSX
 import Alert from '@material-ui/lab/Alert';
 
 export const Message = ({type,content,deleteFlash}) => 
@@ -118,6 +121,7 @@ export const Message = ({type,content,deleteFlash}) =>
   {content}
 </Alert>
 `
+```
 
 
 
@@ -125,11 +129,12 @@ export const Message = ({type,content,deleteFlash}) =>
 We can create the message component using react-bootstrap as below and pass it as a child to Flasher
 
 ## Message component
-`
+
+```JSX
 import Alert from 'react-bootstrap/Alert';
 
 export const Message = ({type,content,deleteFlash}) => 
 <Alert variant={type} onClose={deleteFlash} dismissible>
   {content}
 </Alert>
-`
+```
