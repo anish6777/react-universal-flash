@@ -2,16 +2,16 @@
 React library which provides a function to flash messages. 
 
 
-# Follow below steps 
+# Installation and Setup Instructions
 
-Step 1
-npm install react-universal-flash --save
+## Step 1
+`npm install react-universal-flash --save`
 
-Step 2
-Configure the flasher by importing Flasher component and adding it to App/index file of your app which will be rendered always.
-If we pass child to the Flasher component that child will be used to Flash the messages.
-Flasher takes position and width as props, if no position is provided default position will be"top_right"
-
+## Step 2
+  - Configure the flasher by importing Flasher component and adding it to App/index file of your app which will be rendered always.
+  - If we pass child to the Flasher component that child will be used to Flash the messages.
+  - Flasher takes position and as props, if no position is provided default position will be"top_right"
+`
 import {Flasher} from "react-universal-flash";
 
 const App = () => {
@@ -22,11 +22,13 @@ const App = () => {
     </Router>
   );
 }
+`
 
-Step 3
-import the flash function and fire it from anywhere in the App
-flash function takes three inputs message content, time to live(in milliseconds) and type . "type" can be used by the custom component you pass as to modify the message. 
-
+## Step 3
+  - import the flash function and fire it from anywhere in the App
+  - flash function takes three inputs message content, time to live(in milliseconds) and type . 
+  - "type" can be used in the custom component to modify the message. 
+`
 import {flash} from "react-universal-flash";
 
 const Layout = () => {
@@ -37,14 +39,15 @@ const Layout = () => {
     </>
   );
 };
-
+`
 
 # Custom component to flash message
 
 We can pass a custom message component as child to Flasher. Then message will be flashed in custom component.
 Child component will receive props - content,type and deleteFlash which can be used to show the message and delete it manually.
 
-// Sample Flasher configuration
+## Sample Flasher configuration
+`
 import {Flasher} from "react-universal-flash";
 import Message from "./Message"
 
@@ -58,9 +61,11 @@ const App = () => {
     </Router>
   );
 }
+`
 
-# Sample custom component
+## Sample custom component
 
+`
 const messageBarStyle = {
   "padding": "20px",
   "backgroundColor": "red",
@@ -85,9 +90,9 @@ return
   <span style={closeButtonStyle} onClick={deleteFlash}>&times;</span>
 </div>)
 }
-
-//Usage 
-
+`
+### Usage 
+`
 import {flash} from "react-universal-flash";
 
 const Test = ({  }) => {
@@ -100,27 +105,31 @@ const Test = ({  }) => {
     </div>
   );
 };
-
+`
 # custom component using material-ui
 We can create the message component using material-ui as below and pass it as a child to Flasher
 
-//Message component
-
+## Message component
+`
 import Alert from '@material-ui/lab/Alert';
 
 export const Message = ({type,content,deleteFlash}) => 
 <Alert severity={type} onClose={deleteFlash}>
   {content}
 </Alert>
-
+`
 
 
 
 # custom component using react-bootstrap
+We can create the message component using react-bootstrap as below and pass it as a child to Flasher
 
+## Message component
+`
 import Alert from 'react-bootstrap/Alert';
 
 export const Message = ({type,content,deleteFlash}) => 
 <Alert variant={type} onClose={deleteFlash} dismissible>
   {content}
 </Alert>
+`
