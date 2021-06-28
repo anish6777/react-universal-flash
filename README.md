@@ -1,5 +1,8 @@
 # react-universal-flash
-React library which provides a function to flash messages. 
+React library which provides a function to flash messages.
+  - Flasher component needs to be added only at one place in App
+  - Message can be programatically flashed from anywhere in code
+  - Custom component can be created to style the messages or one can use components like Alert from material-ui,react-bootstrap or any other library
 
 
 # Installation and Setup Instructions
