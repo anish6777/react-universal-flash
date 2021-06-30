@@ -52,6 +52,12 @@ const Layout = () => {
 };
 ```
 
+## Step 4 (optional)
+
+It is better you create you own message component based on the styling or library you use in your app. The default message component provided has very less styling and is available only in one color.
+
+You can create a custom component or use one from any styling library and pass it as a child to Flasher. Examples of creating the component from scratch and creating using components from libraries like material-ui,react-bootstrap and styled-components are given below.
+
 # Custom component to flash message
 
 We can pass a custom message component as child to Flasher. Then message will be flashed in custom component.

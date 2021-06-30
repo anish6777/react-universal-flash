@@ -23,7 +23,8 @@
     "notification",
     "function",
     "nextjs",
-    "alert"
+    "alert",
+    "toast"
   ],
   "author": "Anish Antony",
   "license": "MIT",
