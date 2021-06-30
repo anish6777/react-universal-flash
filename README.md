@@ -4,6 +4,7 @@ React library which provides a function to flash messages.
   - Message can be programatically flashed from anywhere in code
   - Custom component can be created to style the messages or one can use components like "Alert" from material-ui,react-bootstrap or any other library
 
+![Gif showing flash](https://media.giphy.com/media/Bbi2VFne29nY2N1dzt/giphy.gif)
 
 # Installation and Setup Instructions
 

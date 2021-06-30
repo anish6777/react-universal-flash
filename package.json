@@ -1,6 +1,6 @@
 {
   "name": "react-universal-flash",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "description": "React library which provides a function to flash messages",
   "main": "dist/main.js",
   "module": "dist/main.js",
@@ -21,7 +21,9 @@
     "flash",
     "messages",
     "notification",
-    "function"
+    "function",
+    "nextjs",
+    "alert"
   ],
   "author": "Anish Antony",
   "license": "MIT",
