@@ -8,6 +8,10 @@ React library which provides a function to flash messages.
 
 ![Gif showing flash](https://media.giphy.com/media/Bbi2VFne29nY2N1dzt/giphy.gif)
 
+# CodeSandbox samples
+
+[Sample 1 - Custom Message flasher](https://codesandbox.io/s/react-universal-flash-1-oyt1q6)
+
 # Installation and Setup Instructions
 
 ## Step 1
@@ -100,7 +104,7 @@ const closeButtonStyle = {
   cursor: "pointer"
 }
 
-export default const Message = ({type,content,deleteFlash}) => {
+const Message = ({type,content,deleteFlash}) => {
   const style =  ((type === "green")||(type === "success")) ? {...messageBarStyle,"backgroundColor":"green"}:messageBarStyle;
 return
 (<div style={ style } >
@@ -108,6 +112,8 @@ return
   <span style={closeButtonStyle} onClick={deleteFlash}>&times;</span>
 </div>)
 }
+
+export default Message;
 ```
 
 ### Usage
