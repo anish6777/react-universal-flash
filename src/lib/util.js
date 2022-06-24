@@ -5,9 +5,10 @@ import {
   BOTTOM_CENTER,
   BOTTOM_LEFT,
   BOTTOM_RIGHT,
+  CUSTOM
 } from "./constants";
 
-export function getStyle(position, defaultStyle) {
+export function getStyle(position, defaultStyle,customStyles={}) {
   switch ((position && position.toLowerCase()) || "") {
     case TOP_LEFT:
       return { top: 10, left: 10, ...defaultStyle };
@@ -36,6 +37,12 @@ export function getStyle(position, defaultStyle) {
         transform: "translateX(-50%)",
         ...defaultStyle,
       };
+      break;
+    case CUSTOM:
+      return {
+        ...defaultStyle,
+        ...customStyles
+        };
       break;
     default:
       return { top: 10, right: 10, ...defaultStyle };

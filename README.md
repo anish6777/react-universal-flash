@@ -10,7 +10,13 @@ React library which provides a function to flash messages.
 
 # CodeSandbox samples
 
-[Sample 1 - Custom Message flasher](https://codesandbox.io/s/react-universal-flash-1-oyt1q6)
+[Custom Message flasher](https://codesandbox.io/s/react-universal-flash-1-oyt1q6)
+
+[React-Redux(flashing from reducer)](https://codesandbox.io/s/react-universal-flash-1-oyt1q6)
+
+[Material-ui](https://codesandbox.io/s/react-universal-flash-material-ui-565761)
+
+[react-bootstrap](https://codesandbox.io/s/react-universal-flash-material-ui-565761)
 
 # Installation and Setup Instructions
 
@@ -22,7 +28,7 @@ React library which provides a function to flash messages.
 
 - Configure the flasher by importing Flasher component and adding it to App/index file of your app which will be rendered always.
 - If we pass child to the Flasher component that child will be used to Flash the messages.
-- Flasher takes position and as props, if no position is provided default position will be"top_right"
+- Flasher takes position,width and styles as props, if no position is provided default position will be"top_right"
 
 ```JSX
 import {Flasher} from "react-universal-flash";
@@ -33,6 +39,22 @@ const App = () => {
     <Flasher position="bottom_center"/>
     {/* Routes*/}
     </Router>
+  );
+}
+```
+
+- if position is provided as "custom" styles prop will be applied to the Flasher.
+
+```JSX
+import {Flasher} from "react-universal-flash";
+
+const App = () => {
+  return (
+    <div className="App">
+      <Flasher position="custom" customStyles={{top:20,right:10}}>
+      </Flasher>
+      <h1>React Universal Flash</h1>
+    </div>
   );
 }
 ```
