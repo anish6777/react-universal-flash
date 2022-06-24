@@ -20,3 +20,4 @@ export const TOP_CENTER = "top_center";
 export const BOTTOM_LEFT = "bottom_left";
 export const BOTTOM_RIGHT = "bottom_right";
 export const BOTTOM_CENTER = "bottom_center";
+export const CUSTOM = "custom";

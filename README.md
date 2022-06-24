@@ -22,7 +22,7 @@ React library which provides a function to flash messages.
 
 - Configure the flasher by importing Flasher component and adding it to App/index file of your app which will be rendered always.
 - If we pass child to the Flasher component that child will be used to Flash the messages.
-- Flasher takes position and as props, if no position is provided default position will be"top_right"
+- Flasher takes position,width and styles as props, if no position is provided default position will be"top_right"
 
 ```JSX
 import {Flasher} from "react-universal-flash";
@@ -33,6 +33,22 @@ const App = () => {
     <Flasher position="bottom_center"/>
     {/* Routes*/}
     </Router>
+  );
+}
+```
+
+- if position is provided as "custom" styles prop will be applied to the Flasher.
+
+```JSX
+import {Flasher} from "react-universal-flash";
+
+const App = () => {
+  return (
+    <div className="App">
+      <Flasher position="custom" customStyles={{top:20,right:10}}>
+      </Flasher>
+      <h1>React Universal Flash</h1>
+    </div>
   );
 }
 ```

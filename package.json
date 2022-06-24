@@ -1,6 +1,6 @@
 {
   "name": "react-universal-flash",
-  "version": "1.0.11",
+  "version": "1.0.15",
   "description": "React library which provides a function to flash messages",
   "main": "dist/main.js",
   "module": "dist/main.js",

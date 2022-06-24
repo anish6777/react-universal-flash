@@ -4,7 +4,7 @@ import { flashes, setForceUpdate } from "./../flasher";
 import { initialStyle } from "./../constants";
 import { getStyle } from "./../util";
 
-const Flasher = ({ children, position, width }) => {
+const Flasher = ({ children, position,width, customStyles }) => {
   const [ignored, forceUpdate] = useReducer((x) => x + 1, 0);
   const [defaultStyle, setDefaultStyle] = useState(initialStyle);
   useEffect(() => {
@@ -13,8 +13,8 @@ const Flasher = ({ children, position, width }) => {
     }
   }, [width]);
   const boxStyle = useMemo(
-    () => getStyle(position, defaultStyle),
-    [position, defaultStyle]
+    () => getStyle(position, defaultStyle,customStyles),
+    [position,customStyles,defaultStyle]
   );
   useEffect(() => {
     setForceUpdate(forceUpdate);
