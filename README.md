@@ -16,7 +16,7 @@ React library which provides a function to flash messages.
 
 [Material-ui](https://codesandbox.io/s/react-universal-flash-material-ui-565761)
 
-[react-bootstrap](https://codesandbox.io/s/react-universal-flash-material-ui-565761)
+[react-bootstrap](https://codesandbox.io/s/react-universal-flash-react-bootstrap-qnncim)
 
 # Installation and Setup Instructions
 
