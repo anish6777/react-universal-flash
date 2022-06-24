@@ -10,7 +10,13 @@ React library which provides a function to flash messages.
 
 # CodeSandbox samples
 
-[Sample 1 - Custom Message flasher](https://codesandbox.io/s/react-universal-flash-1-oyt1q6)
+[Custom Message flasher](https://codesandbox.io/s/react-universal-flash-1-oyt1q6)
+
+[React-Redux(flashing from reducer)](https://codesandbox.io/s/react-universal-flash-1-oyt1q6)
+
+[Material-ui](https://codesandbox.io/s/react-universal-flash-material-ui-565761)
+
+[react-bootstrap](https://codesandbox.io/s/react-universal-flash-material-ui-565761)
 
 # Installation and Setup Instructions
 
