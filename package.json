@@ -46,10 +46,11 @@
     "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "react-universal-flash": "^1.0.15"
   },
   "peerDependencies": {
-    "react": ">=16.8 <= 17",
-    "react-dom": ">=16.8 <= 17"
+    "react": ">=16.8",
+    "react-dom": ">=16.8"
   }
 }
