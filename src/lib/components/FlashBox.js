@@ -38,6 +38,8 @@ FlashBox.defaultProps = {
 
 FlashBox.propTypes = {
   flashes: PropTypes.arrayOf(PropTypes.object),
+  style:PropTypes.object,
+  child: PropTypes.element
 };
 
 export default FlashBox;
