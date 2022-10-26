@@ -1,11 +1,13 @@
-import React, { useReducer, useMemo, useState, useEffect } from "react";
-import FlashBox from "./FlashBox";
-import { flashes, setForceUpdate } from "./../flasher";
-import { initialStyle } from "./../constants";
-import { getStyle } from "./../util";
+import React, { useMemo, useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
-const Flasher = ({ children, position,width, customStyles }) => {
-  const [ignored, forceUpdate] = useReducer((x) => x + 1, 0);
+import FlashBox from './FlashBox';
+import { setUpdateFlashes } from './../flashCreator';
+import { initialStyle } from './../constants';
+import { getStyle } from './../util';
+
+const Flasher = ({ children, position, width, customStyles }) => {
+  const [flashes, setFlashes] = useState([]);
   const [defaultStyle, setDefaultStyle] = useState(initialStyle);
   useEffect(() => {
     if (width) {
@@ -13,13 +15,20 @@ const Flasher = ({ children, position,width, customStyles }) => {
     }
   }, [width]);
   const boxStyle = useMemo(
-    () => getStyle(position, defaultStyle,customStyles),
-    [position,customStyles,defaultStyle]
+    () => getStyle(position, defaultStyle, customStyles),
+    [position, customStyles, defaultStyle]
   );
   useEffect(() => {
-    setForceUpdate(forceUpdate);
-  }, [forceUpdate]);
+    setUpdateFlashes(setFlashes);
+  }, [setFlashes]);
   return <FlashBox flashes={flashes} child={children} style={boxStyle} />;
+};
+
+Flasher.propTypes = {
+  position: PropTypes.string,
+  width: PropTypes.string,
+  children: PropTypes.element,
+  customStyles: PropTypes.object
 };
 
 export default Flasher;

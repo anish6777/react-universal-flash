@@ -1,8 +1,8 @@
-import React, { useMemo } from "react";
-import PropTypes from "prop-types";
+import React, { useMemo } from 'react';
+import PropTypes from 'prop-types';
 
-import { deleteflash } from "./../flasher";
-import DefaultFlash from "./DefaultFlash";
+import { deleteflash } from './../flashCreator';
+import DefaultFlash from './DefaultFlash';
 
 export function FlashBox({ flashes, child, style }) {
   const flashesToShow = useMemo(
@@ -12,7 +12,7 @@ export function FlashBox({ flashes, child, style }) {
           return React.cloneElement(child, {
             key: v.id,
             deleteFlash: deleteflash.bind(null, v.id),
-            ...v,
+            ...v
           });
         } else {
           return <DefaultFlash key={v.id} {...v} />;
@@ -33,12 +33,12 @@ export function FlashBox({ flashes, child, style }) {
 }
 
 FlashBox.defaultProps = {
-  flashes: [],
+  flashes: []
 };
 
 FlashBox.propTypes = {
   flashes: PropTypes.arrayOf(PropTypes.object),
-  style:PropTypes.object,
+  style: PropTypes.object,
   child: PropTypes.element
 };
 
