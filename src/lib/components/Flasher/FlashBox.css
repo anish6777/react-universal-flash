@@ -1,4 +1,4 @@
-.container {
+.ruv {
   z-index: 999;
   position: fixed;
   width: auto;
@@ -6,19 +6,19 @@
   min-width: 30%;
 }
 
-.top {
+.ruv-top {
   top: 10;
 }
 
-.bottom {
+.ruv-bottom {
   bottom: 10;
 }
 
-.left {
+.ruv-left {
   left: 10;
 }
 
-.center {
+.ruv-center {
   left: 50%;
   transform: translateX(-50%);
 }

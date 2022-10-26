@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import FlashBox from './FlashBox';
 import { setUpdateFlashes } from './../../flashCreator';
 
-const Flasher = ({ children, ...remainingProps }) => {
+const Flasher = ({ children, ...otherProps }) => {
   const [flashes, setFlashes] = useState([]);
   useEffect(() => {
     setUpdateFlashes(setFlashes);
   }, [setFlashes]);
-  return <FlashBox flashes={flashes} child={children} {...remainingProps} />;
+  return <FlashBox flashes={flashes} child={children} {...otherProps} />;
 };
 
 Flasher.propTypes = {

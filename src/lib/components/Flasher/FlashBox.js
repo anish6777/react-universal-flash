@@ -2,8 +2,7 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import { deleteflash } from './../../flashCreator';
-import DefaultFlash from './../DefaultFlash';
-import { positionClasses } from './../../constants';
+import { POSITION_CLASSES, MESSAGE_COMPONENT_ERROR } from './constants';
 
 import './Flashbox.css';
 
@@ -14,7 +13,7 @@ export function FlashBox({
   style,
   position,
   className,
-  ...remainingProps
+  ...otherProps
 }) {
   const Container = as || 'div';
   const flashesToShow = useMemo(
@@ -27,7 +26,8 @@ export function FlashBox({
             ...v
           });
         } else {
-          return <DefaultFlash key={v.id} {...v} />;
+          console.error(MESSAGE_COMPONENT_ERROR);
+          return <></>;
         }
       }),
     [flashes, child]
@@ -35,20 +35,14 @@ export function FlashBox({
 
   return (
     <React.Fragment>
-      {flashes.length > 0 ? (
-        <Container
-          style={style}
-          className={`container ${
-            positionClasses[position || '']
-          } ${className}`}
-          id="flash-box"
-          {...remainingProps}
-        >
-          {flashesToShow}
-        </Container>
-      ) : (
-        <></>
-      )}
+      <Container
+        style={style}
+        className={`ruv ${POSITION_CLASSES[position || '']} ${className}`}
+        id="flash-box"
+        {...otherProps}
+      >
+        {flashesToShow}
+      </Container>
     </React.Fragment>
   );
 }
