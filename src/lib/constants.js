@@ -14,6 +14,22 @@ export const flashStyle = {
   textAlign: 'center'
 };
 
+export const positionClasses = {
+  top_left: 'top left',
+  top_right: 'top right',
+  top_center: 'top center',
+  bottom_right: 'bottom right',
+  bottom_left: 'bottom left',
+  bottom_center: 'bottom center',
+  TOP_LEFT: 'top left',
+  TOP_RIGHT: 'top right',
+  TOP_CENTER: 'top center',
+  BOTTOM_RIGHT: 'bottom right',
+  BOTTOM_LEFT: 'bottom left',
+  BOTTOM_CENTER: 'bottom center',
+  '': 'bottom center'
+};
+
 export const TOP_LEFT = 'top_left';
 export const TOP_RIGHT = 'top_right';
 export const TOP_CENTER = 'top_center';
