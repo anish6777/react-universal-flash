@@ -35,7 +35,7 @@ export function FlashBox({
 
   return (
     <React.Fragment>
-      {flashes.length > 0 && (
+      {flashes.length > 0 ? (
         <Container
           style={style}
           className={`container ${
@@ -46,6 +46,8 @@ export function FlashBox({
         >
           {flashesToShow}
         </Container>
+      ) : (
+        <></>
       )}
     </React.Fragment>
   );
@@ -53,7 +55,8 @@ export function FlashBox({
 
 FlashBox.defaultProps = {
   flashes: [],
-  position: ''
+  position: '',
+  className: ''
 };
 
 FlashBox.propTypes = {
