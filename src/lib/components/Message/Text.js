@@ -1,27 +1,43 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-import { MessageContext } from './Provider';
+import useDataMap from './useDataMap';
 
-const Text = ({ as, children, ...otherProps }) => {
+const Text = ({
+  as,
+  children,
+  childIndex,
+  propIndex,
+  propName,
+  ...otherProps
+}) => {
   const Component = as || 'span';
-  const { type, content } = useContext(MessageContext);
+  const { dataChild, dataProps } = useDataMap(childIndex, propIndex, propName);
   let child;
   if (children) {
     child = React.cloneElement(children, {
-      type,
-      content,
+      dataChild,
+      ...dataProps,
       ...otherProps
     });
   }
-  return <Component {...otherProps}>{child || content || ''}</Component>;
+  return (
+    <Component {...dataProps} {...otherProps}>
+      {dataChild || child || ''}
+    </Component>
+  );
 };
 
-Text.defaultProps = {};
+Text.defaultProps = {
+  className: ''
+};
 
 Text.propTypes = {
   as: PropTypes.string,
   className: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
+  childIndex: PropTypes.number,
+  propIndex: PropTypes.number,
+  propName: PropTypes.string
 };
 export default Text;

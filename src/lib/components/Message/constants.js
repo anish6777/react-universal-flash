@@ -19,12 +19,12 @@ export const MESSAGE_CLASSES = {
 
 export const MESSAGE_ICONS = {
   success: '&#10004;',
-  error: '&#10006;',
-  warning: '&#9888;',
-  info: '&#8505;',
-  close: '&times;',
+  error: '&#10006',
+  warning: '&#9888',
+  info: '&#8505',
+  close: '&times',
   SUCCESS: '&#10004;',
-  ERROR: '&#10006;',
-  WARNING: '&#9888;',
-  INFO: '&#8505;'
+  ERROR: '&#10006',
+  WARNING: '&#9888',
+  INFO: '&#8505'
 };

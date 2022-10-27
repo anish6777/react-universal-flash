@@ -1,4 +1,4 @@
-const { flash, setUpdateFlashes, deleteflash } = (() => {
+const { flash, setUpdateFlashes, deleteflash, deleteAllFlashes } = (() => {
   let updateFlashes;
   const flashes = new Map();
 
@@ -6,19 +6,19 @@ const { flash, setUpdateFlashes, deleteflash } = (() => {
     if (updateFlashes) {
       const flashList = [];
       flashes.forEach((v) => {
-        flashList.push({ id: v.id, type: v.type, content: v.content });
+        flashList.push({ id: v.id, data: v.arguments });
       });
       updateFlashes(flashList);
     }
   }
 
-  function flash(content, timeout = 6000, type) {
+  function flash(timeout = 6000, ...args) {
     const currentTime = new Date().getTime();
     const id = currentTime + '_' + flashes.size;
     setTimeout(() => {
       deleteflash(id);
     }, timeout);
-    flashes.set(id, { id, content, type });
+    flashes.set(id, { id, arguments: args });
     communicateChange();
   }
 
@@ -31,11 +31,17 @@ const { flash, setUpdateFlashes, deleteflash } = (() => {
     communicateChange();
   }
 
+  function deleteAllFlashes() {
+    flashes.clear();
+    communicateChange();
+  }
+
   return {
     setUpdateFlashes,
     flash,
-    deleteflash
+    deleteflash,
+    deleteAllFlashes
   };
 })();
 
-export { flash, setUpdateFlashes, deleteflash };
+export { flash, setUpdateFlashes, deleteflash, deleteAllFlashes };
