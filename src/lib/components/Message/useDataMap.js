@@ -1,17 +1,19 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, useContext } from 'react';
+
+import { MessageContext } from './Provider';
 
 export default function useDataMap(childIndex, propIndex, propName) {
-  const [data, setData] = useState([]);
-  const [deleteFlash, setDeleteFlash] = useState(null);
+  const { data, id, deleteFlash } = useContext(MessageContext);
   const value = useMemo(() => {
     const dataValues = { dataProps: {} };
-    if (childIndex && data) {
+    if (childIndex !== undefined && data) {
       dataValues.dataChild = data[childIndex];
     }
-    if (propIndex && propName && data) {
+    if (propIndex !== undefined && propName && data) {
       dataValues.dataProps = { propName: data[propIndex] };
     }
-    return { ...dataValues, data, deleteFlash, setDeleteFlash, setData };
-  }, [data, childIndex, propName, propIndex, deleteFlash]);
+    return { ...dataValues, data, id, deleteFlash };
+  }, [data, childIndex, propName, propIndex]);
+  console.log('value ', childIndex, ':', value);
   return value;
 }

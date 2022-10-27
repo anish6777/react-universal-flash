@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
 const MessageContext = createContext();
-const { MessageProvider } = MessageContext;
+const { Provider } = MessageContext;
 
-export { MessageProvider, MessageContext };
+export { Provider as MessageProvider, MessageContext };

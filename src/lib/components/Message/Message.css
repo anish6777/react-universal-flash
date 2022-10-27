@@ -1,3 +1,11 @@
+.ruv-message {
+  padding: 20px;
+  background-color: black;
+  color: white;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
 .ruv-message-green {
   padding: 20px;
   background-color: #dff0d8;
@@ -30,10 +38,15 @@
   text-align: center;
 }
 
-.ruv-message {
-  padding: 20px;
-  background-color: black;
-  color: white;
-  margin-bottom: 15px;
-  text-align: center;
+.ruv-left-icon {
+  float: left;
+  position: relative;
+  font-size: 25px;
+}
+
+.ruv-close-icon {
+  float: right;
+  position: relative;
+  font-size: 25px;
+  cursor: pointer;
 }

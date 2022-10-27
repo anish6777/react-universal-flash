@@ -31,6 +31,7 @@ const CloseIcon = ({
       className={className || 'ruv-close-icon'}
       {...dataProps}
       {...otherProps}
+      onClick={deleteFlash}
     >
       {child || dataChild || MESSAGE_ICONS.close}
     </Component>

@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import Text from './Text';
 import LeftIcon from './LeftIcon';
-import Link from './Link';
+import Any from './Any';
 import CloseIcon from './CloseIcon';
 import { MESSAGE_CLASSES } from './constants';
-import useDataMap from './useDataMap';
+import { MessageProvider } from './Provider';
 
 import './Message.css';
 
@@ -22,11 +22,11 @@ const Message = ({
   ...otherProps
 }) => {
   const Component = as || 'div';
-  const { setData, setDeleteFlash } = useDataMap();
-  useEffect(() => {
-    setData(data);
-    setDeleteFlash(deleteFlash);
-  }, []);
+  const value = useMemo(
+    () => ({ id, data, deleteFlash }),
+    [id, data, deleteFlash]
+  );
+
   return (
     <Component
       id={`ruv-message-${id}`}
@@ -39,18 +39,18 @@ const Message = ({
       } ${className}`}
       {...otherProps}
     >
-      {children ||
-        (contentIndex !== undefined && data && data[contentIndex]) ||
-        ''}
+      <MessageProvider value={value}>
+        {children ||
+          (contentIndex !== undefined && data && data[contentIndex]) ||
+          ''}
+      </MessageProvider>
     </Component>
   );
 };
 
 Message.defaultProps = {
   className: '',
-  data: [],
-  contentIndex: 0,
-  typeIndex: 1
+  data: []
 };
 
 Message.propTypes = {
@@ -69,7 +69,7 @@ Message.propTypes = {
   type: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
 };
 
-Message.Link = Link;
+Message.Any = Any;
 Message.Text = Text;
 Message.LeftIcon = LeftIcon;
 Message.CloseIcon = CloseIcon;

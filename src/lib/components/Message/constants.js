@@ -18,13 +18,13 @@ export const MESSAGE_CLASSES = {
 };
 
 export const MESSAGE_ICONS = {
-  success: '&#10004;',
-  error: '&#10006',
-  warning: '&#9888',
-  info: '&#8505',
-  close: '&times',
-  SUCCESS: '&#10004;',
-  ERROR: '&#10006',
-  WARNING: '&#9888',
-  INFO: '&#8505'
+  success: '\u2705',
+  error: '\u274c',
+  warning: '\u26A0',
+  info: '\u24D8',
+  close: '\u2612',
+  SUCCESS: '\u2705',
+  ERROR: '\u274c',
+  WARNING: '\u26A0',
+  INFO: '\u24D8'
 };

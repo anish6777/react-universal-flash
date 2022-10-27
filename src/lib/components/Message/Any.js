@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import useDataMap from './useDataMap';
 
-const Text = ({
+const Any = ({
   as,
   children,
   childIndex,
@@ -12,7 +12,6 @@ const Text = ({
   ...otherProps
 }) => {
   const Component = as || 'span';
-
   const { dataChild, dataProps } = useDataMap(childIndex, propIndex, propName);
   let child;
   if (children) {
@@ -29,11 +28,15 @@ const Text = ({
   );
 };
 
-Text.propTypes = {
+Any.defaultProps = {
+  className: ''
+};
+
+Any.propTypes = {
   as: PropTypes.string,
   children: PropTypes.node,
   childIndex: PropTypes.number,
   propIndex: PropTypes.number,
   propName: PropTypes.string
 };
-export default Text;
+export default Any;

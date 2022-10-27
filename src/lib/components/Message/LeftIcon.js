@@ -14,7 +14,6 @@ const LeftIcon = ({
   ...otherProps
 }) => {
   const Component = as || 'span';
-
   const { dataChild, dataProps } = useDataMap(childIndex, propIndex, propName);
   let child;
   if (children) {
