@@ -1,7 +1,3 @@
-import Flasher from './lib/components/Flasher';
-import Message from './lib/components/Message';
-import { flash, deleteAllFlashes } from './lib/flashCreator';
-
-export { Flasher, Message, flash, deleteAllFlashes };
-
-export default Flasher;
+export { Flasher } from './lib/components/Flasher';
+export { default as Message } from './lib/components/Message';
+export { flash, deleteAllFlashes } from './lib/flashCreator';
