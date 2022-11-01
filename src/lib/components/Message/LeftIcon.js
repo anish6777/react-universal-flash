@@ -17,10 +17,15 @@ const LeftIcon = ({
   const { dataChild, dataProps } = useDataMap(childIndex, propIndex, propName);
   let child;
   if (children) {
-    child = React.cloneElement(children, {
-      data,
-      ...otherProps
-    });
+    if (React.isValidElement(children)) {
+      child = React.cloneElement(children, {
+        dataChild,
+        ...dataProps,
+        ...otherProps
+      });
+    } else {
+      child = children;
+    }
   }
   return (
     <Component

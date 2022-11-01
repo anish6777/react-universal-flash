@@ -21,10 +21,14 @@ const CloseIcon = ({
   );
   let child;
   if (children) {
-    child = React.cloneElement(children, {
-      deleteFlash,
-      ...otherProps
-    });
+    if (React.isValidElement(children)) {
+      child = React.cloneElement(children, {
+        deleteFlash,
+        ...otherProps
+      });
+    } else {
+      child = children;
+    }
   }
   return (
     <Component

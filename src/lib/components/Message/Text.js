@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import useDataMap from './useDataMap';
@@ -16,11 +16,15 @@ const Text = ({
   const { dataChild, dataProps } = useDataMap(childIndex, propIndex, propName);
   let child;
   if (children) {
-    child = React.cloneElement(children, {
-      dataChild,
-      ...dataProps,
-      ...otherProps
-    });
+    if (React.isValidElement(children)) {
+      child = React.cloneElement(children, {
+        dataChild,
+        ...dataProps,
+        ...otherProps
+      });
+    } else {
+      child = children;
+    }
   }
   return (
     <Component {...dataProps} {...otherProps}>
