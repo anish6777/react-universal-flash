@@ -1,6 +1,6 @@
-import { FlashList } from './types';
+import { FlashList, FlashItem } from './types';
 
-const { flash, setUpdateFlashes, deleteflash, deleteAllFlashes } = (() => {
+const { flash, setUpdateFlashes, deleteAllFlashes } = (() => {
   let updateFlashes: Function | undefined;
   const flashes = new Map();
 
@@ -8,29 +8,33 @@ const { flash, setUpdateFlashes, deleteflash, deleteAllFlashes } = (() => {
     if (updateFlashes) {
       const flashList: FlashList = [];
       flashes.forEach((v) => {
-        flashList.push({ id: v.id, data: v.arguments });
+        flashList.push({ ...v, deleteFlash: v.deleteFlash.bind(v) });
       });
       updateFlashes(flashList);
     }
   }
+  const flash: FlashItem = {
+    deleteFlash: function () {
+      flashes.delete(this.id);
+      communicateChange();
+    }
+  };
 
-  function flash(timeout = 6000, ...args: Array<any>) {
+  function createFlash(timeout = 6000, ...args: Array<any>) {
     const currentTime = new Date().getTime();
     const id = currentTime + '_' + flashes.size;
+    const newFlash = <FlashItem>Object.create(flash);
+    newFlash.id = id;
+    newFlash.data = args;
     setTimeout(() => {
-      deleteflash(id);
+      newFlash.deleteFlash();
     }, timeout);
-    flashes.set(id, { id, arguments: args });
+    flashes.set(id, newFlash);
     communicateChange();
   }
 
   function setUpdateFlashes(func: Function) {
     updateFlashes = func;
-  }
-
-  function deleteflash(id: string) {
-    flashes.delete(id);
-    communicateChange();
   }
 
   function deleteAllFlashes() {
@@ -40,10 +44,9 @@ const { flash, setUpdateFlashes, deleteflash, deleteAllFlashes } = (() => {
 
   return {
     setUpdateFlashes,
-    flash,
-    deleteflash,
+    flash: createFlash,
     deleteAllFlashes
   };
 })();
 
-export { flash, setUpdateFlashes, deleteflash, deleteAllFlashes };
+export { flash, setUpdateFlashes, deleteAllFlashes };

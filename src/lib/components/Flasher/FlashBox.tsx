@@ -1,9 +1,6 @@
 import React, { useMemo } from 'react';
-import PropTypes from 'prop-types';
 
-import { deleteflash } from '../../flashCreator';
 import { POSITION_CLASSES, MESSAGE_COMPONENT_ERROR } from './constants';
-
 import { FlashList } from './../../types';
 import './Flashbox.css';
 
@@ -31,7 +28,7 @@ const defaultElement = 'div';
 const FlashBox = <C extends React.ElementType = typeof defaultElement>({
   as,
   flashes,
-  child,
+  children,
   style,
   position,
   className,
@@ -41,10 +38,9 @@ const FlashBox = <C extends React.ElementType = typeof defaultElement>({
   const flashesToShow = useMemo(
     () =>
       flashes.map((v) => {
-        if (React.isValidElement(child)) {
-          return React.cloneElement(child, {
+        if (React.isValidElement(children)) {
+          return React.cloneElement(children, {
             key: v.id,
-            deleteFlash: deleteflash.bind(null, v.id),
             ...v
           });
         } else {
@@ -52,7 +48,7 @@ const FlashBox = <C extends React.ElementType = typeof defaultElement>({
           return <></>;
         }
       }),
-    [flashes, child]
+    [flashes, children]
   );
 
   return (
