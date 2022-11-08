@@ -1,18 +1,25 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import useDataMap from './useDataMap';
+import { ComponentProps } from './Message.types';
 
-const Text = ({
+type OwnProps = {
+  propName?: string;
+  propIndex?: number;
+  childIndex?: number;
+};
+
+const defaultElement = 'span';
+
+const Any = <C extends React.ElementType = typeof defaultElement>({
   as,
   children,
   childIndex,
   propIndex,
   propName,
   ...otherProps
-}) => {
+}: ComponentProps<C, OwnProps>) => {
   const Component = as || 'span';
-
   const { dataChild, dataProps } = useDataMap(childIndex, propIndex, propName);
   let child;
   if (children) {
@@ -33,11 +40,9 @@ const Text = ({
   );
 };
 
-Text.propTypes = {
-  as: PropTypes.string,
-  children: PropTypes.node,
-  childIndex: PropTypes.number,
-  propIndex: PropTypes.number,
-  propName: PropTypes.string
+Any.defaultProps = {
+  className: '',
+  as: defaultElement
 };
-export default Text;
+
+export default Any;

@@ -2,9 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { MESSAGE_ICONS } from './constants';
-import useDataMap from './useDataMap';
 
-const LeftIcon = ({
+import useDataMap from './useDataMap';
+import { ComponentProps } from './Message.types';
+
+type OwnProps = {
+  propName?: string;
+  propIndex?: number;
+  childIndex?: number;
+  className?: string;
+};
+
+const defaultElement = 'span';
+
+const LeftIcon = <C extends React.ElementType = typeof defaultElement>({
   as,
   children,
   className,
@@ -12,7 +23,7 @@ const LeftIcon = ({
   propIndex,
   propName,
   ...otherProps
-}) => {
+}: ComponentProps<C, OwnProps>) => {
   const Component = as || 'span';
   const { dataChild, dataProps } = useDataMap(childIndex, propIndex, propName);
   let child;
@@ -33,7 +44,10 @@ const LeftIcon = ({
       {...dataProps}
       {...otherProps}
     >
-      {child || MESSAGE_ICONS[dataChild] || dataChild || ''}
+      {child ||
+        MESSAGE_ICONS[dataChild as keyof typeof MESSAGE_ICONS] ||
+        dataChild ||
+        ''}
     </Component>
   );
 };
@@ -42,12 +56,4 @@ LeftIcon.defaultProps = {
   className: ''
 };
 
-LeftIcon.propTypes = {
-  as: PropTypes.string,
-  className: PropTypes.string,
-  children: PropTypes.node,
-  childIndex: PropTypes.number,
-  propIndex: PropTypes.number,
-  propName: PropTypes.string
-};
 export default LeftIcon;
