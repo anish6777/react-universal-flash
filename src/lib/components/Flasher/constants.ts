@@ -11,7 +11,7 @@ export const POSITION_CLASSES = {
   BOTTOM_RIGHT: 'ruv-bottom ruv-right',
   BOTTOM_LEFT: 'ruv-bottom ruv-left',
   BOTTOM_CENTER: 'ruv-bottom ruv-center',
-  '': 'ruv-bottom ruv-center'
+  '': 'ruv-top ruv-right'
 };
 
 export const MESSAGE_COMPONENT_ERROR =
