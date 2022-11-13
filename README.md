@@ -18,6 +18,8 @@ React library which provides a function to flash messages.
 
 [react-bootstrap](https://codesandbox.io/s/react-universal-flash-react-bootstrap-qnncim)
 
+[chakra-ui](https://codesandbox.io/s/react-universal-flash-react-chakra-ui-emggt1)
+
 # Installation and Setup Instructions
 
 ## Step 1
