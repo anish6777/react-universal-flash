@@ -1,0 +1,24 @@
+.ruv {
+  z-index: 999;
+  position: fixed;
+  width: auto;
+  height: auto;
+  min-width: 30%;
+}
+
+.ruv-top {
+  top: 10;
+}
+
+.ruv-bottom {
+  bottom: 10;
+}
+
+.ruv-left {
+  left: 10;
+}
+
+.ruv-center {
+  left: 50%;
+  transform: translateX(-50%);
+}

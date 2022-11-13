@@ -1,0 +1,52 @@
+.ruv-message {
+  padding: 20px;
+  background-color: black;
+  color: white;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.ruv-message-green {
+  padding: 20px;
+  background-color: #dff0d8;
+  color: #3c763d;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.ruv-message-blue {
+  padding: 20px;
+  background-color: #d9edf7;
+  color: #31708f;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.ruv-message-amber {
+  padding: 20px;
+  background-color: #fcf8e3;
+  color: #8a6d3b;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.ruv-message-red {
+  padding: 20px;
+  background-color: #f2dede;
+  color: #a94442;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.ruv-left-icon {
+  float: left;
+  position: relative;
+  font-size: 25px;
+}
+
+.ruv-close-icon {
+  float: right;
+  position: relative;
+  font-size: 25px;
+  cursor: pointer;
+}
